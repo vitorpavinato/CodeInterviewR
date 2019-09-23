@@ -1,0 +1,38 @@
+---
+title: "Palindrome/permutation check"
+author: "Vitor Pavinato"
+date: "9/23/2019"
+output: html_document
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r palindrome function, echo=TRUE}
+library(stringr)
+
+checkPalindrome <- function(word){
+  splited_word <- unlist(str_split(word, pattern = ""))
+  set = NULL
+  for (char in splited_word){
+    if (char %in% set) {
+      set = set[set != char]
+    } else {
+      set <- c(set, char)
+    }
+  }
+  
+  return(length(set) <= 1)
+}
+```
+
+```{r palindrome test 1, echo=TRUE}
+checkPalindrome("arara")
+```
+
+```{r palindrome test 2, echo=TRUE}
+checkPalindrome("aarra")
+```
