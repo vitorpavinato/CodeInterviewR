@@ -1,0 +1,25 @@
+---
+title: "Functional_programming_with_R"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r functional programming function, echo=TRUE}
+add_five <- function(x)
+{
+  return(x + 5)
+}
+
+apply_twice <- function(func, arg)
+{
+  return(func(func(arg)))
+}
+```
+
+```{r apply function example, echo=TRUE}
+print(apply_twice(add_five, 10))
+```
+
